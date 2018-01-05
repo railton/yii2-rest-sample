@@ -30,6 +30,12 @@ cd yii2-rest-sample
 docker-compose up -d
 ~~~
 
+Access the container.
+
+~~~
+docker exec -it rest bash
+~~~
+
 Download the dependencies.
 
 ~~~
