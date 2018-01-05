@@ -1,0 +1,12 @@
+version: '3'
+services:
+  webserver:
+    image: railton/yii2-dev
+    ports:
+      - "8081:80"
+    volumes:
+      - .:/var/www/html
+      - ./conf/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    container_name: rest
+    working_dir: /var/www/html
+
