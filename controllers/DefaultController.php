@@ -18,6 +18,8 @@ class DefaultController extends \yii\rest\Controller
 
         unset($behaviors['authenticator']);
 
+        $exceptActions = ['options','login'];
+
         $behaviors['corsFilter'] = [
             'class' => \yii\filters\Cors::className(),
             'cors' => [
@@ -33,7 +35,7 @@ class DefaultController extends \yii\rest\Controller
             'authMethods' => [
                 HttpBearerAuth::className(),
             ],
-            'except' => ['options','login'],
+            'except' => $exceptActions,
         ];
 
         $behaviors['contentNegotiator'] = [
@@ -46,6 +48,7 @@ class DefaultController extends \yii\rest\Controller
         // Check permission
         $behaviors['permission'] = [
             'class' => '\app\filters\PermissionFilter',
+            'except' => $exceptActions,
         ];
 
         return $behaviors;

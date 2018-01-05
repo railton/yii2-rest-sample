@@ -59,6 +59,14 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
+                    'controller' => 'user',
+                    'patterns' => [
+                        'POST login' => 'login',
+                        'GET current' => 'current',
+                    ],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
                     'controller' => 'test',
                     'patterns' => [
                         'GET ' => 'index',
